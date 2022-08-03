@@ -8,7 +8,7 @@ local javascript = {
 }
 
 function javascript.reconnect()
-    if javascript.__websocket then j
+    if javascript.__websocket then
         javascript.__websocket:Close() 
     end
     javascript.__websocket = SocketConnect("ws://localhost:3000")
