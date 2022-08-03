@@ -1,7 +1,7 @@
 ### I made this for fun, i usually dont code in JS.
 
 #### Setup
-1. Run index.js
+1. Run index.js on your Computer (it connects to localhost:3000)
 2. Done. You can now use the javascript module.
 
 #### Example
