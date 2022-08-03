@@ -9,7 +9,7 @@ local javascript = {
 
 function javascript.reconnect()
     if javascript.__websocket then j
-        avascript.__websocket:Close() 
+        javascript.__websocket:Close() 
     end
     javascript.__websocket = SocketConnect("ws://localhost:3000")
 end
