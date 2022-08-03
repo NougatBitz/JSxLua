@@ -2,7 +2,7 @@
 
 const SocketServer  = require("ws").Server;
 const express       = require("express");
-const Request       = require("Request");
+const Request       = require("request");
 
 const ExpressServer = express().listen(3000);
 const WebSocketServer = new SocketServer({
