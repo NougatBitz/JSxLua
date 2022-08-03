@@ -8,11 +8,17 @@ local javascript = {
 }
 
 function javascript.reconnect()
+    if javascript.__websocket then j
+        avascript.__websocket:Close() 
+    end
     javascript.__websocket = SocketConnect("ws://localhost:3000")
 end
 
-function javascript.request(Data)
+function javascript.request(Data, Timeout)
+    local StartResponse = tick()
     local ServerResponse, OnMessage
+
+    Timeout = Timeout or 60
 
     OnMessage = javascript.__websocket.OnMessage:Connect(function(Response)
         ServerResponse = HttpService:JSONDecode(Response)
@@ -22,7 +28,8 @@ function javascript.request(Data)
 
     javascript.__websocket:Send( HttpService:JSONEncode( Data ) )
 
-    repeat Heartbeat:wait() until ServerResponse
+    repeat Heartbeat:wait() 
+    until (ServerResponse) or ((tick() - StartResponse) > Timeout)
 
     return ServerResponse
 end
